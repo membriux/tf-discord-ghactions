@@ -1,0 +1,14 @@
+# What
+name: Discord Notify
+
+# When to perform job: on push to repository
+on: [push]
+
+#
+# How: discords url channel for bots, on ubuntu
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Discord Notify POST request
+        run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=Pushed to master!"
